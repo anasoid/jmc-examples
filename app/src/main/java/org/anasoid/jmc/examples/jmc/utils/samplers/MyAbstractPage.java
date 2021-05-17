@@ -16,7 +16,7 @@
  * Date :   11-May-2021
  */
 
-package org.anasoid.jmc.examples.utils.samplers;
+package org.anasoid.jmc.examples.jmc.utils.samplers;
 
 import lombok.NonNull;
 import org.anasoid.jmc.core.wrapper.jmc.samplers.HttpMethod;

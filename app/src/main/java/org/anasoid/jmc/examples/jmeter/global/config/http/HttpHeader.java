@@ -16,7 +16,7 @@
  * Date :   11-May-2021
  */
 
-package org.anasoid.jmc.examples.global.config.http;
+package org.anasoid.jmc.examples.jmeter.global.config.http;
 
 import org.anasoid.jmc.core.wrapper.JmcWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.jmeter.protocol.http.control.HeaderManagerWrapper;

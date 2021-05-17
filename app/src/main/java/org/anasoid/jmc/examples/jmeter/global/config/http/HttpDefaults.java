@@ -16,13 +16,13 @@
  * Date :   11-May-2021
  */
 
-package org.anasoid.jmc.examples.global.config.http;
+package org.anasoid.jmc.examples.jmeter.global.config.http;
 
 import org.anasoid.jmc.core.wrapper.JmcWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.jmeter.protocol.http.config.HttpDefaultsWrapper;
 import org.anasoid.jmc.core.wrapper.jmeter.protocol.http.config.HttpDefaultsWrapper.HttpDefaultsWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.template.AbstractJmcTemplate;
-import org.anasoid.jmc.examples.global.config.TestConfig;
+import org.anasoid.jmc.examples.jmeter.global.config.TestUserConfig;
 
 public class HttpDefaults extends AbstractJmcTemplate<HttpDefaultsWrapper> {
 
@@ -30,8 +30,8 @@ public class HttpDefaults extends AbstractJmcTemplate<HttpDefaultsWrapper> {
   protected void prepareBuilder(JmcWrapperBuilder<HttpDefaultsWrapper> builder) {
     super.prepareBuilder(builder);
     HttpDefaultsWrapperBuilder httpDefaultsWrapper = (HttpDefaultsWrapperBuilder) builder;
-    httpDefaultsWrapper.withProtocol("https").withPort(TestConfig.SERVER_PORT.getValue())
-        .withDomain(TestConfig.SERVER_URL.getValue());
+    httpDefaultsWrapper.withProtocol("https").withPort(TestUserConfig.SERVER_PORT.getValue())
+        .withDomain(TestUserConfig.SERVER_URL.getValue());
   }
 
   @Override

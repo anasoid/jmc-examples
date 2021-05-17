@@ -16,15 +16,16 @@
  * Date :   17-May-2021
  */
 
-package org.anasoid.jmc.examples.threads;
+package org.anasoid.jmc.examples.jmeter.threads;
 
 import org.anasoid.jmc.core.wrapper.JmcWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.jmeter.threads.ThreadGroupWrapper;
 import org.anasoid.jmc.core.wrapper.jmeter.threads.ThreadGroupWrapper.ThreadGroupWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.template.AbstractJmcTemplate;
-import org.anasoid.jmc.examples.global.config.TestConfig;
-import org.anasoid.jmc.examples.samplers.http.HomePageController;
-import org.anasoid.jmc.examples.samplers.http.RepositoryPageController;
+import org.anasoid.jmc.examples.jmeter.global.config.TestUserConfig;
+import org.anasoid.jmc.examples.jmeter.samplers.http.HomePageController;
+import org.anasoid.jmc.examples.jmeter.samplers.http.RepositoryPageController;
+
 
 public class MainThread extends AbstractJmcTemplate<ThreadGroupWrapper> {
 
@@ -39,8 +40,8 @@ public class MainThread extends AbstractJmcTemplate<ThreadGroupWrapper> {
   @Override
   protected JmcWrapperBuilder<ThreadGroupWrapper> init() {
     return (JmcWrapperBuilder<ThreadGroupWrapper>) ThreadGroupWrapper.builder()
-        .withName("Main Thread").withLoops(TestConfig.EXEC_LOOP_COUNT)
-        .withNumThreads(TestConfig.EXEC_THREAD_COUNT);
+        .withName("Main Thread").withLoops(TestUserConfig.EXEC_LOOP_COUNT)
+        .withNumThreads(TestUserConfig.EXEC_THREAD_COUNT);
   }
 
   protected void addHomePage(ThreadGroupWrapperBuilder threadGroupWrapper) {

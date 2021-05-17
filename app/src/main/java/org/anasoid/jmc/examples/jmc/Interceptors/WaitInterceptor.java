@@ -16,20 +16,20 @@
  * Date :   17-May-2021
  */
 
-package org.anasoid.jmc.examples.Interceptors;
+package org.anasoid.jmc.examples.jmc.Interceptors;
 
 import org.anasoid.jmc.core.application.interceptors.PrepareInterceptor;
 import org.anasoid.jmc.core.wrapper.jmeter.samplers.HTTPSamplerProxyWrapper;
 import org.anasoid.jmc.core.wrapper.jmeter.testelement.TestElementWrapper;
 import org.anasoid.jmc.core.wrapper.jmeter.timers.UniformRandomTimerWrapper;
-import org.anasoid.jmc.examples.global.config.Tags;
-import org.anasoid.jmc.examples.global.config.TestConfig;
+import org.anasoid.jmc.examples.jmc.config.Tags;
+import org.anasoid.jmc.examples.jmeter.global.config.TestUserConfig;
 
 public class WaitInterceptor implements PrepareInterceptor {
 
   @Override
   public boolean support(TestElementWrapper<?> testElementWrapper) {
-    return testElementWrapper.getTags().contains(Tags.WAIT)
+    return testElementWrapper.getTags().contains(Tags.WAIT.toString())
         && testElementWrapper instanceof HTTPSamplerProxyWrapper;
   }
 
@@ -41,7 +41,7 @@ public class WaitInterceptor implements PrepareInterceptor {
         UniformRandomTimerWrapper.builder()
             .withName("Wait default")
             .withDelay(0)
-            .withRandom(TestConfig.WAIT_RND_DEFAULT)
+            .withRandom(TestUserConfig.WAIT_RND_DEFAULT)
             .build());
   }
 }

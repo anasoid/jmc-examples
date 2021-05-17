@@ -16,9 +16,11 @@
  * Date :   17-May-2021
  */
 
-package org.anasoid.jmc.examples.global.config;
+package org.anasoid.jmc.examples.jmc.config;
 
 public enum Tags {
 
   WAIT, DEBUG
+
+
 }

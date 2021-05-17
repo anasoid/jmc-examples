@@ -2,8 +2,11 @@ package org.anasoid.jmc.examples;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 import org.anasoid.jmc.core.application.ApplicationTest;
-import org.anasoid.jmc.examples.testplan.HelloTestPlan;
+import org.anasoid.jmc.examples.jmc.Interceptors.DebugInterceptor;
+import org.anasoid.jmc.examples.jmc.Interceptors.WaitInterceptor;
+import org.anasoid.jmc.examples.jmeter.testplan.HelloTestPlan;
 import org.junit.jupiter.api.Test;
 /*
  * Copyright 2020-2021 the original author or authors.
@@ -31,7 +34,19 @@ class AppTest {
     ApplicationTest applicationTest = new ApplicationTest(new HelloTestPlan().generate());
 
     String filepath =
-        System.getProperties().getProperty("user.dir") + "/build/jmx/" + "HelloTestPlan.jmx";
+        System.getProperties().getProperty("user.dir") + "/build/jmx/" + "helloTest.jmx";
+    applicationTest.toJmx(new File(filepath));
+  }
+
+  @Test
+  void helloTestInterceptors() throws IOException {
+
+    ApplicationTest applicationTest = new ApplicationTest(new HelloTestPlan().generate(),
+        Arrays.asList(new WaitInterceptor(), new DebugInterceptor()));
+
+    String filepath =
+        System.getProperties().getProperty("user.dir") + "/build/jmx/"
+            + "helloTestInterceptors.jmx";
     applicationTest.toJmx(new File(filepath));
   }
 }

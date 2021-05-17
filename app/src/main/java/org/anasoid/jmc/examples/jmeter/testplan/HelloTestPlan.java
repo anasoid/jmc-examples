@@ -16,13 +16,13 @@
  * Date :   17-May-2021
  */
 
-package org.anasoid.jmc.examples.testplan;
+package org.anasoid.jmc.examples.jmeter.testplan;
 
 import org.anasoid.jmc.core.wrapper.JmcWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.jmeter.testelement.TestPlanWrapper;
 import org.anasoid.jmc.core.wrapper.jmeter.testelement.TestPlanWrapper.TestPlanWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.jmeter.visualizers.AggregateReportWrapper;
-import org.anasoid.jmc.examples.threads.MainThread;
+import org.anasoid.jmc.examples.jmeter.threads.MainThread;
 
 public class HelloTestPlan extends AbstractTestPlan {
 

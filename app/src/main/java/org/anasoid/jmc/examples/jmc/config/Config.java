@@ -13,20 +13,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * @author : anas
- * Date :   11-May-2021
+ * Date :   17-May-2021
  */
 
-package org.anasoid.jmc.examples.samplers.http;
+package org.anasoid.jmc.examples.jmc.config;
 
-import org.anasoid.jmc.examples.data.CsvUrlRepoReader;
-import org.anasoid.jmc.examples.utils.samplers.MyAbstractPageController;
+import org.anasoid.jmc.core.config.JmcConfig;
 
-public class RepositoryPageController extends MyAbstractPageController {
+public final class Config {
 
 
-  public RepositoryPageController() {
-    super("Repository Page", CsvUrlRepoReader.URL.getValue());
+  private Config() {
   }
 
+  /**
+   * is debug enabled.
+   */
+  public static boolean isDebug() {
+    return "true".equalsIgnoreCase(JmcConfig.getProperty("example.debug"));
+  }
 
+  /**
+   * round.
+   */
+  public static Integer waitDefault() {
+    return Integer.valueOf(JmcConfig.getProperty("wait.rnd.default"));
+  }
 }

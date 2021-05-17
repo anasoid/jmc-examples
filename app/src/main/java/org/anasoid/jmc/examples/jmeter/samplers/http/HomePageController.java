@@ -16,12 +16,20 @@
  * Date :   11-May-2021
  */
 
-package org.anasoid.jmc.examples.samplers.http;
+package org.anasoid.jmc.examples.jmeter.samplers.http;
 
-import org.anasoid.jmc.examples.utils.samplers.MyAbstractPageController;
+import org.anasoid.jmc.core.dsl.assertions.ResponseAssertionDsl;
+import org.anasoid.jmc.core.wrapper.jmeter.samplers.HTTPSamplerProxyWrapper.HTTPSamplerProxyWrapperBuilder;
+import org.anasoid.jmc.examples.jmc.config.Tags;
+import org.anasoid.jmc.examples.jmc.utils.samplers.MyAbstractPageController;
 
 public class HomePageController extends MyAbstractPageController {
 
+  @Override
+  protected void prepareSamplerBuilder(HTTPSamplerProxyWrapperBuilder<?, ?> builder) {
+    super.prepareSamplerBuilder(builder);
+    builder.addAssertion(ResponseAssertionDsl.httpCodeOK("Assertion 200")).addTags(Tags.WAIT.name());
+  }
 
   public HomePageController() {
     super("Home Page", "/anasoid");

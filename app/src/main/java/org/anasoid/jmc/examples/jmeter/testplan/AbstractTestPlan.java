@@ -13,23 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * @author : anas
- * Date :   11-May-2021
+ * Date :   17-May-2021
  */
 
-package org.anasoid.jmc.examples.data;
+package org.anasoid.jmc.examples.jmeter.testplan;
 
 import org.anasoid.jmc.core.wrapper.JmcWrapperBuilder;
-import org.anasoid.jmc.core.wrapper.jmc.Variable;
-import org.anasoid.jmc.core.wrapper.jmeter.config.CSVDataSetWrapper;
+import org.anasoid.jmc.core.wrapper.jmeter.testelement.TestPlanWrapper;
 import org.anasoid.jmc.core.wrapper.template.AbstractJmcTemplate;
+import org.anasoid.jmc.examples.jmeter.global.config.TestUserConfig;
+import org.anasoid.jmc.examples.jmeter.global.config.http.HttpDefaults;
+import org.anasoid.jmc.examples.jmeter.global.config.http.HttpHeader;
 
-public class CsvUrlRepoReader extends AbstractJmcTemplate<CSVDataSetWrapper> {
-
-  public static final Variable URL = new Variable("repo.url");
+public class AbstractTestPlan extends AbstractJmcTemplate<TestPlanWrapper> {
 
   @Override
-  protected JmcWrapperBuilder<CSVDataSetWrapper> init() {
-    return (JmcWrapperBuilder<CSVDataSetWrapper>) CSVDataSetWrapper.builder()
-        .withFilename("data/repositories.csv").addvariable(URL);
+  protected JmcWrapperBuilder<TestPlanWrapper> init() {
+    return (JmcWrapperBuilder<TestPlanWrapper>) TestPlanWrapper.builder()
+        .addConfig(new TestUserConfig())
+        .addConfig(new HttpDefaults())
+        .addConfig(new HttpHeader());
   }
 }

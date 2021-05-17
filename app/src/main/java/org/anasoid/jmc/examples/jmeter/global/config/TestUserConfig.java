@@ -16,7 +16,7 @@
  * Date :   17-May-2021
  */
 
-package org.anasoid.jmc.examples.global.config;
+package org.anasoid.jmc.examples.jmeter.global.config;
 
 import org.anasoid.jmc.core.wrapper.JmcWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.jmc.Variable;
@@ -24,8 +24,9 @@ import org.anasoid.jmc.core.wrapper.jmc.functions.JmeterFunctions;
 import org.anasoid.jmc.core.wrapper.jmeter.config.ArgumentsWrapper;
 import org.anasoid.jmc.core.wrapper.jmeter.config.ArgumentsWrapper.ArgumentsWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.template.AbstractJmcTemplate;
+import org.anasoid.jmc.examples.jmc.config.Config;
 
-public class TestConfig extends AbstractJmcTemplate<ArgumentsWrapper> {
+public class TestUserConfig extends AbstractJmcTemplate<ArgumentsWrapper> {
 
   public static final Variable SERVER_URL = new Variable("repo.url");
   public static final Variable SERVER_PORT = new Variable("repo.port");
@@ -49,7 +50,7 @@ public class TestConfig extends AbstractJmcTemplate<ArgumentsWrapper> {
             JmeterFunctions.property("EXEC_LOOP_COUNT", "3"))
 
         .addArgument(WAIT_RND_DEFAULT,
-            JmeterFunctions.property("WAIT_RND_DEFAULT", "2"))
+            JmeterFunctions.property("WAIT_RND_DEFAULT", String.valueOf(Config.waitDefault())))
 
     ;
   }
