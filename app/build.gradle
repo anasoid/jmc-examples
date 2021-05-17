@@ -26,6 +26,12 @@ dependencies {
     // Use JUnit Jupiter Engine for testing.
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 
+
+    //LOMBOCK
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
+
+
     // This dependency is used by the application.
     implementation 'org.anasoid.jmc:jmc-core:master-SNAPSHOT'
 }

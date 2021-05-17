@@ -3,12 +3,14 @@
  */
 package org.anasoid.jmc.examples;
 
+import org.anasoid.jmc.core.wrapper.jmeter.testelement.TestPlanWrapper;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
+
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+
+        TestPlanWrapper testPlanWrapper = TestPlanWrapper.builder().build();
+        //ApplicationTest applicationTest=new ApplicationTest();
     }
 }
