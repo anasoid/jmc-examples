@@ -54,7 +54,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build with Gradle
-        run: ./gradlew --stacktrace --console=verbose  build
+        run: ./gradlew --stacktrace --refresh-dependencies --console=verbose  build
 
 
       - name: Publish artifact Test Report
