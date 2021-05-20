@@ -27,14 +27,14 @@ import org.anasoid.jmc.examples.jmeter.samplers.http.HomePageController;
 import org.anasoid.jmc.examples.jmeter.samplers.http.RepositoryPageController;
 
 
-public class MainThread extends AbstractJmcTemplate<ThreadGroupWrapper> {
+public class MainThread extends
+    AbstractJmcTemplate<ThreadGroupWrapper, ThreadGroupWrapperBuilder<?, ?>> {
 
   @Override
-  protected void prepareBuilder(JmcWrapperBuilder<ThreadGroupWrapper> builder) {
+  protected void prepareBuilder(ThreadGroupWrapperBuilder<?, ?> builder) {
     super.prepareBuilder(builder);
-    ThreadGroupWrapperBuilder threadGroupWrapper = (ThreadGroupWrapperBuilder) builder;
-    addHomePage(threadGroupWrapper);
-    addRepoPage(threadGroupWrapper);
+    addHomePage(builder);
+    addRepoPage(builder);
   }
 
   @Override

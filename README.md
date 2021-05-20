@@ -3,7 +3,9 @@
 An API that give access to full Jmeter feature as code, All designed object in GUI can be written as code.
 
 ### Usage example
-A basic script example:
+
+###### basic script example:
+
 ````java
     TestPlanWrapper testPlan = TestPlanWrapper.builder()
         .addThread(ThreadGroupWrapper.builder()
@@ -25,6 +27,44 @@ A basic script example:
   applicationTest.toJmx(new File("mytest.jmx"));
 ````
 
+###### A basic script example using template:
+````java
+    TestPlanWrapper testPlan = TestPlanWrapper.builder()
+        .addThread(ThreadGroupWrapper.builder()
+            .addSampler(new HomePage())
+            .build())
+        .build();
+
+    ApplicationTest applicationTest = new ApplicationTest(testPlanWrapper);
+
+    applicationTest.run();
+    //OR
+    applicationTest.toJmx(new File("mytest.jmx"));
+    
+class HomePage extends
+    AbstractJmcTemplate<HTTPSamplerProxyWrapper, HTTPSamplerProxyWrapperBuilder<?, ?>> {
+
+  @Override
+  protected void prepareBuilder(HTTPSamplerProxyWrapperBuilder<?, ?> builder) {
+    super.prepareBuilder(builder);
+    builder.withName("Home")
+        .withDomain("https://github.com")
+        .withProtocol("https")
+        .withPath("/anasoid");
+  }
+
+  @Override
+  protected JmcWrapperBuilder<?> init() {
+    return HTTPSamplerProxyWrapper.builder();
+  }
+}
+
+            
+
+  
+````
+
+
 ###Build:
 
 ####JMETER_HOME:
@@ -37,7 +77,7 @@ In linux
 ####Execution:
 
 ````shell
-./gradlew build
+./gradlew  --refresh-dependencies  clean build
 ````
 
 Some tests will be executed and jmx file generated to folder./app/build/jmx

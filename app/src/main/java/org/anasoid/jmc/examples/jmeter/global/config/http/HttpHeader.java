@@ -23,14 +23,14 @@ import org.anasoid.jmc.core.wrapper.jmeter.protocol.http.control.HeaderManagerWr
 import org.anasoid.jmc.core.wrapper.jmeter.protocol.http.control.HeaderManagerWrapper.HeaderManagerWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.template.AbstractJmcTemplate;
 
-public class HttpHeader extends AbstractJmcTemplate<HeaderManagerWrapper> {
+public class HttpHeader extends
+    AbstractJmcTemplate<HeaderManagerWrapper, HeaderManagerWrapperBuilder<?, ?>> {
 
 
   @Override
-  protected void prepareBuilder(JmcWrapperBuilder<HeaderManagerWrapper> builder) {
+  protected void prepareBuilder(HeaderManagerWrapperBuilder<?, ?> builder) {
     super.prepareBuilder(builder);
-    HeaderManagerWrapperBuilder headerManagerBuilder = (HeaderManagerWrapperBuilder) builder;
-    headerManagerBuilder.userAgentHeader(
+    builder.userAgentHeader(
         "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0")
         .userAgentHeader("en-US,en;q=0.5")
         .acceptHeader("text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8")

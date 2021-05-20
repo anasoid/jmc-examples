@@ -24,13 +24,13 @@ import org.anasoid.jmc.core.wrapper.jmeter.protocol.http.config.HttpDefaultsWrap
 import org.anasoid.jmc.core.wrapper.template.AbstractJmcTemplate;
 import org.anasoid.jmc.examples.jmeter.global.config.TestUserConfig;
 
-public class HttpDefaults extends AbstractJmcTemplate<HttpDefaultsWrapper> {
+public class HttpDefaults extends
+    AbstractJmcTemplate<HttpDefaultsWrapper, HttpDefaultsWrapperBuilder<?, ?>> {
 
   @Override
-  protected void prepareBuilder(JmcWrapperBuilder<HttpDefaultsWrapper> builder) {
+  protected void prepareBuilder(HttpDefaultsWrapperBuilder<?, ?> builder) {
     super.prepareBuilder(builder);
-    HttpDefaultsWrapperBuilder httpDefaultsWrapper = (HttpDefaultsWrapperBuilder) builder;
-    httpDefaultsWrapper.withProtocol("https").withPort(TestUserConfig.SERVER_PORT.getValue())
+    builder.withProtocol("https").withPort(TestUserConfig.SERVER_PORT.getValue())
         .withDomain(TestUserConfig.SERVER_URL.getValue());
   }
 

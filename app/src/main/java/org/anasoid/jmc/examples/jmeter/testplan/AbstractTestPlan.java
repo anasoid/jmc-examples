@@ -20,12 +20,14 @@ package org.anasoid.jmc.examples.jmeter.testplan;
 
 import org.anasoid.jmc.core.wrapper.JmcWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.jmeter.testelement.TestPlanWrapper;
+import org.anasoid.jmc.core.wrapper.jmeter.testelement.TestPlanWrapper.TestPlanWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.template.AbstractJmcTemplate;
 import org.anasoid.jmc.examples.jmeter.global.config.TestUserConfig;
 import org.anasoid.jmc.examples.jmeter.global.config.http.HttpDefaults;
 import org.anasoid.jmc.examples.jmeter.global.config.http.HttpHeader;
 
-public class AbstractTestPlan extends AbstractJmcTemplate<TestPlanWrapper> {
+public class AbstractTestPlan extends
+    AbstractJmcTemplate<TestPlanWrapper, TestPlanWrapperBuilder<?, ?>> {
 
   @Override
   protected JmcWrapperBuilder<TestPlanWrapper> init() {

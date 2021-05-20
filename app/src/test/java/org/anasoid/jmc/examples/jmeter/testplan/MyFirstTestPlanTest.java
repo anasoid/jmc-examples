@@ -1,7 +1,5 @@
 package org.anasoid.jmc.examples.jmeter.testplan;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.File;
 import java.io.IOException;
 import org.anasoid.jmc.core.application.ApplicationTest;

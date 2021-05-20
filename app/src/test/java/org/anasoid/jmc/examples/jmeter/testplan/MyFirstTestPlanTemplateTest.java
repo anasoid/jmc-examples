@@ -1,3 +1,9 @@
+package org.anasoid.jmc.examples.jmeter.testplan;
+
+import java.io.File;
+import java.io.IOException;
+import org.anasoid.jmc.core.application.ApplicationTest;
+import org.junit.jupiter.api.Test;
 /*
  * Copyright 2020-2021 the original author or authors.
  *
@@ -13,23 +19,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  * @author : anas
- * Date :   17-May-2021
+ * Date :   20-May-2021
  */
 
-package org.anasoid.jmc.examples.jmeter.testplan;
+class MyFirstTestPlanTemplateTest {
 
-import org.anasoid.jmc.core.wrapper.jmeter.testelement.TestPlanWrapper.TestPlanWrapperBuilder;
-import org.anasoid.jmc.core.wrapper.jmeter.visualizers.AggregateReportWrapper;
-import org.anasoid.jmc.examples.jmeter.threads.MainThread;
+  @Test
+  void firstTest() throws IOException {
 
-public class HelloTestPlan extends AbstractTestPlan {
+    ApplicationTest applicationTest = new ApplicationTest(
+        new MyFirstTestPlanTemplate().getTestPlan());
 
-  @Override
-  protected void prepareBuilder(TestPlanWrapperBuilder<?, ?> builder) {
-    super.prepareBuilder(builder);
-    builder.addThread(new MainThread());
-
-    //Results
-    builder.addListener(AggregateReportWrapper.builder().build());
+    String filepath =
+        System.getProperties().getProperty("user.dir") + "/build/jmx/" + "firstTestTemplate.jmx";
+    applicationTest.toJmx(new File(filepath));
+    applicationTest.run();
   }
 }

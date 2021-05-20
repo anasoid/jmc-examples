@@ -21,9 +21,11 @@ package org.anasoid.jmc.examples.jmeter.data;
 import org.anasoid.jmc.core.wrapper.JmcWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.jmc.Variable;
 import org.anasoid.jmc.core.wrapper.jmeter.config.CSVDataSetWrapper;
+import org.anasoid.jmc.core.wrapper.jmeter.config.CSVDataSetWrapper.CSVDataSetWrapperBuilder;
 import org.anasoid.jmc.core.wrapper.template.AbstractJmcTemplate;
 
-public class CsvUrlRepoReader extends AbstractJmcTemplate<CSVDataSetWrapper> {
+public class CsvUrlRepoReader extends
+    AbstractJmcTemplate<CSVDataSetWrapper, CSVDataSetWrapperBuilder<?, ?>> {
 
   public static final Variable URL = new Variable("repo.url");
 

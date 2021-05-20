@@ -26,7 +26,8 @@ import org.anasoid.jmc.core.wrapper.jmeter.config.ArgumentsWrapper.ArgumentsWrap
 import org.anasoid.jmc.core.wrapper.template.AbstractJmcTemplate;
 import org.anasoid.jmc.examples.jmc.config.Config;
 
-public class TestUserConfig extends AbstractJmcTemplate<ArgumentsWrapper> {
+public class TestUserConfig extends
+    AbstractJmcTemplate<ArgumentsWrapper, ArgumentsWrapperBuilder<?, ?>> {
 
   public static final Variable SERVER_URL = new Variable("repo.url");
   public static final Variable SERVER_PORT = new Variable("repo.port");
@@ -37,10 +38,10 @@ public class TestUserConfig extends AbstractJmcTemplate<ArgumentsWrapper> {
   public static final Variable WAIT_RND_DEFAULT = new Variable("wait.rnd.default");
 
   @Override
-  protected void prepareBuilder(JmcWrapperBuilder<ArgumentsWrapper> builder) {
+  protected void prepareBuilder(ArgumentsWrapperBuilder<?, ?> builder) {
     super.prepareBuilder(builder);
-    ArgumentsWrapperBuilder headerManagerBuilder = (ArgumentsWrapperBuilder) builder;
-    headerManagerBuilder.addArgument(SERVER_URL,
+
+    builder.addArgument(SERVER_URL,
         JmeterFunctions.property("SERVER_URL", "github.com"))
         .addArgument(SERVER_PORT,
             JmeterFunctions.property("SERVER_PORT", "443"))
