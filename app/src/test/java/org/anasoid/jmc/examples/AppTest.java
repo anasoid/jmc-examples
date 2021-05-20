@@ -36,6 +36,7 @@ class AppTest {
     String filepath =
         System.getProperties().getProperty("user.dir") + "/build/jmx/" + "helloTest.jmx";
     applicationTest.toJmx(new File(filepath));
+    applicationTest.run();
   }
 
   @Test
@@ -48,5 +49,7 @@ class AppTest {
         System.getProperties().getProperty("user.dir") + "/build/jmx/"
             + "helloTestInterceptors.jmx";
     applicationTest.toJmx(new File(filepath));
+    applicationTest.run();
+
   }
 }
