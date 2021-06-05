@@ -1,80 +1,28 @@
 # Example for [Jmeter as code](https://github.com/anasoid/jmeter-as-code)
 
-An API that give access to full Jmeter feature as code, All designed object in GUI can be written as code.
+An API that give access to full Jmeter feature as code, All designed object in GUI can be written as
+code.
 
-### Usage example
+### Example
 
-###### basic script example:
+In this example we generate and execute JMX file using junit test in different way.
 
-````java
-    TestPlanWrapper testPlan = TestPlanWrapper.builder()
-        .addThread(ThreadGroupWrapper.builder()
-            .addSampler(
-                HTTPSamplerProxyWrapper.builder()
-                    .withName("Home")
-                    .withDomain("https://github.com")
-                    .withProtocol("https")
-                    .withPath("/anasoid")
-                    .build())
-            .build())
-        .build();
+All test will generate test access to home page (https://github.com/anasoid/) and test list of
+repositories owned by this user,
 
-            
-  ApplicationTest applicationTest = new ApplicationTest(testPlanWrapper);
- 
-  applicationTest.run();
-  //OR
-  applicationTest.toJmx(new File("mytest.jmx"));
-````
+### Build:
 
-###### A basic script example using template:
-````java
-    TestPlanWrapper testPlan = TestPlanWrapper.builder()
-        .addThread(ThreadGroupWrapper.builder()
-            .addSampler(new HomePage())
-            .build())
-        .build();
+#### JMETER_HOME:
 
-    ApplicationTest applicationTest = new ApplicationTest(testPlanWrapper);
-
-    applicationTest.run();
-    //OR
-    applicationTest.toJmx(new File("mytest.jmx"));
-    
-class HomePage extends
-    AbstractJmcTemplate<HTTPSamplerProxyWrapper, HTTPSamplerProxyWrapperBuilder<?, ?>> {
-
-  @Override
-  protected void prepareBuilder(HTTPSamplerProxyWrapperBuilder<?, ?> builder) {
-    super.prepareBuilder(builder);
-    builder.withName("Home")
-        .withDomain("https://github.com")
-        .withProtocol("https")
-        .withPath("/anasoid");
-  }
-
-  @Override
-  protected JmcWrapperBuilder<?> init() {
-    return HTTPSamplerProxyWrapper.builder();
-  }
-}
-
-            
-
-  
-````
-
-
-###Build:
-
-####JMETER_HOME:
 set JMETER_HOME environment variable to jmeter folder.
 
 In linux
+
 ````shell
  export  JMETER_HOME=/..path tojmeter
 ````
-####Execution:
+
+#### Execution:
 
 ````shell
 ./gradlew  --refresh-dependencies  clean build
