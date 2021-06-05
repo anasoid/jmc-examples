@@ -14,9 +14,6 @@ plugins {
 repositories {
     // Use JCenter for resolving dependencies.
     mavenCentral()
-    maven {
-        url = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
-    }
 }
 
 dependencies {
@@ -33,7 +30,7 @@ dependencies {
 
 
     // This dependency is used by the application.
-    implementation 'org.anasoid.jmc:jmc-core:master-SNAPSHOT'
+    implementation 'org.anasoid.jmc:jmc-core:v0.1.0'
 }
 
 application {
