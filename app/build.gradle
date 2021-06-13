@@ -30,7 +30,7 @@ dependencies {
 
 
     // This dependency is used by the application.
-    implementation 'org.anasoid.jmc:jmc-core:v0.1.0'
+    implementation "org.anasoid.jmc:jmc-core:$jmcVersion"
 }
 
 application {
