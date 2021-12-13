@@ -35,10 +35,10 @@ public class DebugInterceptor implements PrepareInterceptor {
   }
 
   @Override
-  public void prepare(TestElementWrapper<?> testElementWrapper) {
+  public void prepare(TestElementWrapper<?> testPlan, TestElementWrapper<?> testElementWrapper) {
     GenericControllerWrapper controller = (GenericControllerWrapper) testElementWrapper;
 
-    List<TestElementWrapper> children = controller.getChilds();
+    List<TestElementWrapper> children = controller.getChildren();
 
     for (int i = 0; i < children.size(); i++) {
       TestElementWrapper child = children.get(i);

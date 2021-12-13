@@ -12,16 +12,6 @@ repositories owned by this user,
 
 ### Build:
 
-#### JMETER_HOME:
-
-set JMETER_HOME environment variable to jmeter folder.
-
-In linux
-
-````shell
- export  JMETER_HOME=/..path tojmeter
-````
-
 #### Execution:
 
 ````shell

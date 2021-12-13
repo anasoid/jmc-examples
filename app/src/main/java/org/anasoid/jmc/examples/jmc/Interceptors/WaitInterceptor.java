@@ -34,10 +34,10 @@ public class WaitInterceptor implements PrepareInterceptor {
   }
 
   @Override
-  public void prepare(TestElementWrapper<?> testElementWrapper) {
+  public void prepare(TestElementWrapper<?> testPlan, TestElementWrapper<?> testElementWrapper) {
     HTTPSamplerProxyWrapper sampler = (HTTPSamplerProxyWrapper) testElementWrapper;
 
-    sampler.getChilds().add(
+    sampler.getChildren().add(
         UniformRandomTimerWrapper.builder()
             .withName("Wait default")
             .withDelay(0)
