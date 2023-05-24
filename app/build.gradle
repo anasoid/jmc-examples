@@ -25,8 +25,8 @@ dependencies {
 
 
     //LOMBOCK
-    compileOnly 'org.projectlombok:lombok:1.18.26'
-    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    compileOnly 'org.projectlombok:lombok:1.18.28'
+    annotationProcessor 'org.projectlombok:lombok:1.18.28'
 
 
     // This dependency is used by the application.
