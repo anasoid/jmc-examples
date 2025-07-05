@@ -18,11 +18,10 @@ repositories {
 
 dependencies {
     // Use JUnit Jupiter API for testing.
-    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
 
     // Use JUnit Jupiter Engine for testing.
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
     //LOMBOCK
     compileOnly 'org.projectlombok:lombok:1.18.38'
